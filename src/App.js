@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { css } from "@emotion/react";
 import { ClipLoader } from "react-spinners";
+import "./App.css";
 
 const override = css`
   display: block;
@@ -35,10 +36,10 @@ const App = () => {
     return;
   }
   const someMagic = (stringTosplit) => {
-    let newItem = stringTosplit.split(" ");
-    let newItemLowercase = newItem.map((color) => color.toLowerCase());
-    newItemLowercase = newItemLowercase.filter((e) => e !== "and");
-    return newItemLowercase;
+    return stringTosplit
+      .split(" ")
+      .map((color) => color.toLowerCase())
+      .filter((e) => e !== "and");
   };
   houses.map((item) => {
     arr.push({
@@ -64,12 +65,12 @@ const App = () => {
         <div>
           {arr.map((house) => (
             <div
+              // className="wrapper"
               style={{
                 width: "500px",
                 border: "2px solid white",
                 marginTop: "20px",
                 borderRadius: "8px",
-
                 boxShadow:
                   "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
               }}>
